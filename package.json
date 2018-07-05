@@ -1,0 +1,32 @@
+{
+  "name": "setup-package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test:html",
+    "test:html": "nu-html-checker *.html",
+    "init-project": "npm install && npm run init:dirs && npm run init:files && npm run init:gitignore",
+    "init:dirs": "mkdirp sass css vendor images js",
+    "init:files": "touch README.md index.html sass/style.scss js/script.js",
+    "init:gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore",
+
+    "build": "npm run build:sass && npm run build:autoprefixer && npm run test",
+  	"build:sass": "node-sass --output-style compact -o css sass",
+	  "build:autoprefixer": "autoprefixer-cli css/style.css",
+  	"build-dev:sass": "node-sass --output-style expanded --source-map true -o css sass"
+
+    },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankiris/7.4-learning-git.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.24.4",
+    "node-sass": "^4.9.0",
+    "nu-html-checker": "^0.1.0"
+  }
+}
