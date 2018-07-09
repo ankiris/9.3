@@ -1,26 +1,26 @@
 'use strict';
 //modale
-(function(){ 
-  var modals = document.querySelectorAll('.modal');
+var modals = document.querySelectorAll('.modal');
 //open modal
   
-var showModal = function(event){
-  var hashIndex = event.target.href.indexOf('#')
+var showModal = function(){
+/*  var hashIndex = event.target.href.indexOf('#')
   var modalId = event.target.href.substring(hashIndex)
   event.preventDefault();
+  */
   document.querySelector('#modal-overlay').classList.add('show');
-  document.querySelector(modalId).classList.add('show');
+  document.querySelector('#modal-one').classList.add('show');
   var endResult = document.querySelector('#modal-one');
   endResult.innerHTML = '<header>GAME OVER</header>  <div class="content"> <p>Finall result: You:'+params.wins+ ' - Computer:'+params.loses+'</p> </div>'
-};
+  };
  
   
-var modalLinks = document.querySelectorAll('.show-modal');
+//var modalLinks = document.querySelectorAll('.show-modal');
 
-for(var i = 0; i < modalLinks.length; i++){
+/*for(var i = 0; i < modalLinks.length; i++){
   modalLinks[i].addEventListener('click', showModal);
   }
-
+*/
 // hide modal	
 var hideModal = function(event){
   event.preventDefault();
@@ -45,8 +45,7 @@ for(var i = 0; i < modals.length; i++){
     event.stopPropagation();
   });
 }
-
-})(); 
+ 
 
 var output = document.getElementById("output"); 
 var comment = document.getElementById("comment"); 
@@ -133,9 +132,12 @@ function gameOver() {
   console.log(params.games)
   console.log(params.rounds)
   if (params.games == params.rounds) {
-      document.getElementById("game").style.display = "none";
+    showModal(true);
+
+ /*     document.getElementById("game").style.display = "none";
       output.innerHTML = 'Game over! <br><br>Finall result: You:'+params.wins+ ' - Computer:'+params.loses; 
       comment.innerHTML = ''
       result.innerHTML = ''
+      */
   } 
 };
