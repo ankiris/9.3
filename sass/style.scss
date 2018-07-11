@@ -38,7 +38,7 @@ body {
   .modal {
     display: none;
     background: #fff;
-    width: 200px;
+    width: 500px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -68,5 +68,9 @@ body {
     .content {
       min-height: 30px;
       padding: 5px 30px;
+      table {
+        border-color: black;
+        border-width: 2px;
+      }
     }
   } 

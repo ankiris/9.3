@@ -17,9 +17,9 @@ var showModalOver = function(){
   document.querySelector('#modal-overlay').classList.add('show');
   document.querySelector('#modal-two').classList.add('show');
   var endResult = document.querySelector('#score');
-  endResult.innerHTML = ' <div class="content"> <p>Finall result: You '+params.wins+ ' : '+params.loses+' Computer</p></div>'
+  endResult.innerHTML = ' <div class="content"> <p>Finall result: <br> You '+params.wins+ ' : '+params.loses+' Computer</p></div>'
   var scoreTable = document.querySelector('#table')
-  scoreTable.innerHTML += '<table>'+progressTable.join()+'</table>';
+  scoreTable.innerHTML += '<table> <tr><th>Round</th><th>Player</th><th>Computer</th><th>Result</th></tr> '+progressTable.join(' ')+' </table>';
 };
   
 
@@ -51,6 +51,7 @@ var output = document.getElementById("output");
 var comment = document.getElementById("comment"); 
 var result = document.getElementById("result"); 
 var round = document.getElementById("round"); 
+var roundNumber = 0;
 var progressTable = []; 
 var resultTable;
 var params = {
@@ -135,7 +136,10 @@ function user(){
   
   output.innerHTML = 'User: '+playerMove+ '<br> Computer: '+compMove + '<br><br>'; 
   result.innerHTML = 'You:'+params.wins+ ' - Computer:'+params.loses+ '<br><br> games played: '+params.games+'.';
-  params.progress.push([params.games, playerMove, compMove, resultTable]);
+  
+  roundNumber++
+  params.progress.push([roundNumber, playerMove, compMove, resultTable]);
+  
   console.log(params.progress)
   gameOver()
 }
@@ -151,7 +155,7 @@ function gameOver() {
 function gameOverTable() {
   for (i=0; i < params.progress.length; i++){
     var rows = params.progress[i];
-    progressTable.push('<tr><th>'+rows[0]+'</th><th>'+rows[1]+'</th><th>'+rows[2]+'</th><th>'+rows[3]+'</th></tr>');
+    progressTable.push('<tr><td>'+rows[0]+'</td><td>'+rows[1]+'</td><td>'+rows[2]+'</td><td>'+rows[3]+'</td></tr>');
     console.log(progressTable)
   };
 }
