@@ -2,26 +2,27 @@
 //modale
 var modals = document.querySelectorAll('.modal');
 //open modal
-  
-var showModal = function(){
-/*  var hashIndex = event.target.href.indexOf('#')
-  var modalId = event.target.href.substring(hashIndex)
+/*var showModalStart = function(){
   event.preventDefault();
-  */
-  document.querySelector('#modal-overlay').classList.add('show');
-  document.querySelector('#modal-one').classList.add('show');
-  var endResult = document.querySelector('#modal-one');
-  endResult.innerHTML = '<header>GAME OVER</header>  <div class="content"> <p>Finall result: You:'+params.wins+ ' - Computer:'+params.loses+'</p> </div>'
-  };
- 
-  
-//var modalLinks = document.querySelectorAll('.show-modal');
-
-/*for(var i = 0; i < modalLinks.length; i++){
-  modalLinks[i].addEventListener('click', showModal);
-  }
+    document.querySelector('#modal-overlay').classList.add('show');
+    document.querySelector('#modal-one').classList.add('show');
+    var endResult = document.querySelector('#modal-one');
+    endResult.innerHTML += '<header>GAME OVER</header>  <div class="content"> <p>Finall result: You:'+params.wins+ ' - Computer:'+params.loses+'</p> </div>'
+    }; 
 */
-// hide modal	
+/*var modalLinks = document.querySelector('.modal-start');
+modalLinks.addEventListener('click', showModalStart);
+*/
+var showModalOver = function(){
+  document.querySelector('#modal-overlay').classList.add('show');
+  document.querySelector('#modal-two').classList.add('show');
+  var endResult = document.querySelector('#score');
+  endResult.innerHTML = ' <div class="content"> <p>Finall result: You '+params.wins+ ' : '+params.loses+' Computer</p></div>'
+  var scoreTable = document.querySelector('#table')
+  scoreTable.innerHTML += '<table>'+resultTable[1]+'</table>';
+};
+  
+
 var hideModal = function(event){
   event.preventDefault();
   document.querySelector('#modal-overlay').classList.remove('show');
@@ -45,17 +46,19 @@ for(var i = 0; i < modals.length; i++){
     event.stopPropagation();
   });
 }
- 
 
 var output = document.getElementById("output"); 
 var comment = document.getElementById("comment"); 
 var result = document.getElementById("result"); 
 var round = document.getElementById("round"); 
+var progressTable = []; 
+var resultTable;
 var params = {
 rounds: 0,
 loses: 0,
 wins: 0,
-games: 0
+games: 0,
+progress: []
 };
 
 var button = document.getElementById('start-game');
@@ -93,29 +96,36 @@ function user(){
     function compare (player, comp) {
       if (player === comp){
         comment.innerHTML = 'It`s a tie!';
+        resultTable = 'It`s a tie!';
       } else if (player == 'rock'){
           if (comp == 'scissors') {
           params.wins++;
           comment.innerHTML = 'You won!';
+          resultTable = 'You won!'
           } else if (comp == 'paper')  {
             params.loses++;
             comment.innerHTML = 'You lost!';
+            resultTable = 'You lost!'
           } 
         } else if (player == 'paper'){
           if (comp == 'rock') {
             params.wins++;
             comment.innerHTML = 'You won!';
+            resultTable = 'You won!';
           } else if (comp == 'scissors')  {
             params.loses++;
             comment.innerHTML = 'You lost!';
+            resultTable = 'You lost!';
           } 
         } else if (player == 'scissors'){
           if (comp == 'paper') {
             params.wins++;
             comment.innerHTML = 'You won!';
+            resultTable = 'You won!';
           } else if (comp == 'rock')  {
             params.loses++;
             comment.innerHTML = 'You lost!';
+            resultTable = 'You lost!';
           } 
         }
       }
@@ -125,19 +135,23 @@ function user(){
   
   output.innerHTML = 'User: '+playerMove+ '<br> Computer: '+compMove + '<br><br>'; 
   result.innerHTML = 'You:'+params.wins+ ' - Computer:'+params.loses+ '<br><br> games played: '+params.games+'.';
+  params.progress.push([params.games, playerMove, compMove, resultTable]);
+  console.log(params.progress)
   gameOver()
 }
 //game over
 function gameOver() {
-  console.log(params.games)
-  console.log(params.rounds)
   if (params.games == params.rounds) {
-    showModal(true);
-
- /*     document.getElementById("game").style.display = "none";
-      output.innerHTML = 'Game over! <br><br>Finall result: You:'+params.wins+ ' - Computer:'+params.loses; 
-      comment.innerHTML = ''
-      result.innerHTML = ''
-      */
-  } 
+    gameOverTable(true)
+    showModalOver(true);
+    document.getElementById("game").style.display = "none";
+  };
 };
+
+function gameOverTable() {
+  for (i=0; i < params.progress.length; i++){
+    var rows = params.progress[i];
+    progressTable.push('<tr><th>'+rows[0]+'</th><th>'+rows[1]+'</th><th>'+rows[2]+'</th><th>'+rows[3]+'</th></tr>');
+    console.log(progressTable)
+  };
+}

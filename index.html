@@ -6,32 +6,33 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     </head>
     <body>
-        <div class="container">
-          <button id="start-game">Play</button>
-          <div id="round"></div>
-          <div id="game">
-            <h1>Play your hand</h1>
-            <i class="far fa-hand-rock player-move" id="rock" data-move="rock"></i>
-            <i class="far fa-hand-paper player-move" id="paper" data-move="paper"></i>
-            <i class="far fa-hand-scissors player-move" id="scissors" data-move="scissors"></i>
-          </div>
-          <div id="output"></div>
-          <div id="comment"></div>
-          <div id="result"></div>
+        <div class="container"></div>
+            <button id="start-game">Play</button>  
+            <p><a href="#modal-one" class="show-modal modal-start">Start game</a></p>
+            <div id="round"></div>
+            <div id="game">
+                <h1>Play your hand</h1>
+                <i class="far fa-hand-rock player-move" id="rock" data-move="rock"></i>
+                <i class="far fa-hand-paper player-move" id="paper" data-move="paper"></i>
+                <i class="far fa-hand-scissors player-move" id="scissors" data-move="scissors"></i>
+            </div>
+            <div id="output"></div>
+            <div id="comment"></div>
+            <div id="result"></div>
         </div>
         <div class="overlay" id="modal-overlay">
             <div class="modal" id="modal-one">
                 <a href="#" class="close">x</a>
-                <header>Modal one</header>
+                <header></header>
                 <div class="content">
-                    <p>Dolor sit amet!</p>
+                    <p></p>
                 </div>
             </div>
             <div class="modal" id="modal-two">
                 <a href="#" class="close">x</a>
-                <header>Modal two</header>
-                <div class="content">
-                    <p>Dolor sit amet!</p>
+                <header>GAME OVER</header> 
+                <div id="score"></div>
+                <div class="content" id="table">
                 </div>
             </div>
         </div>    
