@@ -19,7 +19,7 @@ var showModalOver = function(){
   var endResult = document.querySelector('#score');
   endResult.innerHTML = ' <div class="content"> <p>Finall result: You '+params.wins+ ' : '+params.loses+' Computer</p></div>'
   var scoreTable = document.querySelector('#table')
-  scoreTable.innerHTML += '<table>'+resultTable[1]+'</table>';
+  scoreTable.innerHTML += '<table>'+progressTable.join()+'</table>';
 };
   
 
