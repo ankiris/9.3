@@ -2,24 +2,25 @@
 //modale
 var modals = document.querySelectorAll('.modal');
 //open modal
-/*var showModalStart = function(){
+var name;
+
+var showModalStart = function(){
   event.preventDefault();
     document.querySelector('#modal-overlay').classList.add('show');
     document.querySelector('#modal-one').classList.add('show');
-    var endResult = document.querySelector('#modal-one');
-    endResult.innerHTML += '<header>GAME OVER</header>  <div class="content"> <p>Finall result: You:'+params.wins+ ' - Computer:'+params.loses+'</p> </div>'
-    }; 
-*/
-/*var modalLinks = document.querySelector('.modal-start');
+    var endResult = document.querySelector('#modal-one-content');
+    endResult.innerHTML += 'Please enter your name <input type="text" name="playerName">'
+}
+var modalLinks = document.querySelector('#modal-start');
 modalLinks.addEventListener('click', showModalStart);
-*/
+
 var showModalOver = function(){
   document.querySelector('#modal-overlay').classList.add('show');
   document.querySelector('#modal-two').classList.add('show');
   var endResult = document.querySelector('#score');
-  endResult.innerHTML = ' <div class="content"> <p>Finall result: <br> You '+params.wins+ ' : '+params.loses+' Computer</p></div>'
+  endResult.innerHTML = ' <div class="content"> <p>Final result: <br> You '+params.wins+ ' : '+params.loses+' Computer</p></div>'
   var scoreTable = document.querySelector('#table')
-  scoreTable.innerHTML += '<table> <tr><th>Round</th><th>Player</th><th>Computer</th><th>Result</th></tr> '+progressTable.join(' ')+' </table>';
+  scoreTable.innerHTML += '<tr><th>Round</th><th>Player</th><th>Computer</th><th>Result</th></tr> '+progressTable.join(' ')+''
 };
   
 //hide modal
@@ -51,7 +52,7 @@ var output = document.getElementById("output");
 var comment = document.getElementById("comment"); 
 var result = document.getElementById("result"); 
 var round = document.getElementById("round"); 
-var roundNumber = 0;
+var playerName;
 var progressTable = []; 
 var resultTable;
 var params = {
@@ -59,6 +60,7 @@ var params = {
   loses: 0,
   wins: 0,
   games: 0,
+  roundNumber: 0,
   progress: []
 };
 
@@ -73,6 +75,7 @@ function newGame(){
   } else {
     output.innerHTML = 'Input needs to be a number' + '<br><br>' 
   }
+  document.querySelector('#modal-overlay').classList.remove('show');
 }
 //player move buttons
 var moves = document.querySelectorAll('.player-move');
@@ -100,57 +103,44 @@ function user(){
       if (player === comp){
         comment.innerHTML = 'It`s a tie!';
         resultTable = 'It`s a tie!';
-      } else if (player == 'rock'){
-          if (comp == 'scissors') {
+      } else if (
+        player == 'rock' && comp == 'scissors' ||
+        player == 'scissors' && comp == 'paper' ||
+        player == 'paper' && comp == 'rock'
+      ){
           params.wins++;
           comment.innerHTML = 'You won!';
           resultTable = 'You won!'
-          } else if (comp == 'paper')  {
-            params.loses++;
-            comment.innerHTML = 'You lost!';
-            resultTable = 'You lost!'
-          } 
-        } else if (player == 'paper'){
-          if (comp == 'rock') {
-            params.wins++;
-            comment.innerHTML = 'You won!';
-            resultTable = 'You won!';
-          } else if (comp == 'scissors')  {
-            params.loses++;
-            comment.innerHTML = 'You lost!';
-            resultTable = 'You lost!';
-          } 
-        } else if (player == 'scissors'){
-          if (comp == 'paper') {
-            params.wins++;
-            comment.innerHTML = 'You won!';
-            resultTable = 'You won!';
-          } else if (comp == 'rock')  {
-            params.loses++;
-            comment.innerHTML = 'You lost!';
-            resultTable = 'You lost!';
-          } 
+        } else {
+          params.loses++;
+          comment.innerHTML = 'You lost!';
+          resultTable = 'You lost!'
         }
       }
        
   compare (playerMove, compMove);
   params.games = params.wins + params.loses;
   //print out the result
-  output.innerHTML = 'User: '+playerMove+ '<br> Computer: '+compMove + '<br><br>'; 
+  output.innerHTML = 'You played '+playerMove+ '<br> Computer played '+compMove + '<br><br>'; 
   result.innerHTML = 'You:'+params.wins+ ' - Computer:'+params.loses+ '<br><br> games played: '+params.games+'.';
   //creates entry of progress after every round
-  roundNumber++
-  params.progress.push([roundNumber, playerMove, compMove, resultTable]);
+  params.roundNumber++
+  params.progress.push([params.roundNumber, playerMove, compMove, resultTable]);
   
   console.log(params.progress)
   gameOver()
 }
 //game over
 function gameOver() {
-  if (params.games == params.rounds) {
+  if (params.roundNumber == params.rounds) {
     gameOverTable(true)
     showModalOver(true);
     document.getElementById("game").style.display = "none";
+    params.rounds = 0;
+    params.loses = 0;
+    params.wins = 0;
+    params.games = 0;
+    params.progress = []
   };
 };
 //creates a html of a row of a progress table

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -7,8 +8,8 @@
     </head>
     <body>
         <div class="container"></div>
-            <button id="start-game">Play</button>  
-            <p><a href="#modal-one" class="show-modal modal-start">Start game</a></p>
+            <button id="start-game">Play</button>
+            <p><a href="#modal-one" class="show-modal" id ="modal-start">Start game</a></p>
             <div id="round"></div>
             <div id="game">
                 <h1>Play your hand</h1>
@@ -23,8 +24,9 @@
         <div class="overlay" id="modal-overlay">
             <div class="modal" id="modal-one">
                 <a href="#" class="close">x</a>
+                <button id="start-game">Play</button>
                 <header></header>
-                <div class="content">
+                <div class="content" id="modal-one-content">
                     <p></p>
                 </div>
             </div>
@@ -32,7 +34,8 @@
                 <a href="#" class="close">x</a>
                 <header>GAME OVER</header> 
                 <div id="score"></div>
-                <div class="content" id="table">
+                <div class="content" >
+                    <table id="table"></table>
                 </div>
             </div>
         </div>    

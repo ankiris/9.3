@@ -22,4 +22,4 @@ body { background: lightblue; font-family: 'Courier New', Courier, monospace; te
 
 .modal .content { min-height: 30px; padding: 5px 30px; }
 
-.modal .content table { border-color: black; border-width: 2px; }
+#table { border: 2px solid black; }
