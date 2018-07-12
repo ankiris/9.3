@@ -22,7 +22,7 @@ var showModalOver = function(){
   scoreTable.innerHTML += '<table> <tr><th>Round</th><th>Player</th><th>Computer</th><th>Result</th></tr> '+progressTable.join(' ')+' </table>';
 };
   
-
+//hide modal
 var hideModal = function(event){
   event.preventDefault();
   document.querySelector('#modal-overlay').classList.remove('show');
@@ -46,7 +46,7 @@ for(var i = 0; i < modals.length; i++){
     event.stopPropagation();
   });
 }
-
+//variables
 var output = document.getElementById("output"); 
 var comment = document.getElementById("comment"); 
 var result = document.getElementById("result"); 
@@ -55,17 +55,18 @@ var roundNumber = 0;
 var progressTable = []; 
 var resultTable;
 var params = {
-rounds: 0,
-loses: 0,
-wins: 0,
-games: 0,
-progress: []
+  rounds: 0,
+  loses: 0,
+  wins: 0,
+  games: 0,
+  progress: []
 };
 
+//start button
 var button = document.getElementById('start-game');
 button.addEventListener('click', newGame);
 function newGame(){
-  params.rounds = window.prompt('How many params.rounds you would like to play');
+  params.rounds = window.prompt('How many rounds you would like to play');
   if (!isNaN(params.rounds) && params.rounds>0){
    document.getElementById("game").style.display = "block";
    round.innerHTML = '<br> You have ' +params.rounds+' rounds.'
@@ -73,27 +74,28 @@ function newGame(){
     output.innerHTML = 'Input needs to be a number' + '<br><br>' 
   }
 }
-
+//player move buttons
 var moves = document.querySelectorAll('.player-move');
 for (var i=0; i < moves.length; i++) {
   moves[i].addEventListener('click', user) 
 };
- 
-
+//Print out result of the round 
 function results() {
   if (params.games < params.rounds) {  
   result.innerHTML = 'You:'+params.wins+ ' - Computer:'+params.loses+'<br><br> games played: '+params.games+'.'
   }
 }
-
+//game 
 function user(){
   var playerMove = this.getAttribute('data-move');
 
+  //generates computer's move
   var compMove = Math.floor(Math.random() * 3);
     if (compMove == 0)  {compMove = "rock";
     } else if(compMove == 1) {compMove = "paper";
     } else{compMove = "scissors";
     }; 
+    //compares computer and player move
     function compare (player, comp) {
       if (player === comp){
         comment.innerHTML = 'It`s a tie!';
@@ -133,10 +135,10 @@ function user(){
        
   compare (playerMove, compMove);
   params.games = params.wins + params.loses;
-  
+  //print out the result
   output.innerHTML = 'User: '+playerMove+ '<br> Computer: '+compMove + '<br><br>'; 
   result.innerHTML = 'You:'+params.wins+ ' - Computer:'+params.loses+ '<br><br> games played: '+params.games+'.';
-  
+  //creates entry of progress after every round
   roundNumber++
   params.progress.push([roundNumber, playerMove, compMove, resultTable]);
   
@@ -151,7 +153,7 @@ function gameOver() {
     document.getElementById("game").style.display = "none";
   };
 };
-
+//creates a html of a row of a progress table
 function gameOverTable() {
   for (i=0; i < params.progress.length; i++){
     var rows = params.progress[i];
