@@ -1,5 +1,7 @@
 body { background: #4E85F1; font-family: 'K2D', sans-serif; text-align: center; position: relative; }
 
+.title-sign { color: white; text-shadow: 2px 2px 4px #000000; }
+
 .far { padding: 25px; font-size: 50px; }
 
 .far:hover { transform: scale(1.5); transition: 1s; }
