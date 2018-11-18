@@ -4,15 +4,7 @@ var modals = document.querySelectorAll('.modal');
 //open modal
 var name;
 
-var showModalStart = function(){
-  event.preventDefault();
-    document.querySelector('#modal-overlay').classList.add('show');
-    document.querySelector('#modal-one').classList.add('show');
-    var endResult = document.querySelector('#modal-one-content');
-    endResult.innerHTML += 'Please enter your name <input type="text" name="playerName">'
-}
-var modalLinks = document.querySelector('#modal-start');
-modalLinks.addEventListener('click', showModalStart);
+/*
 
 var showModalOver = function(){
   document.querySelector('#modal-overlay').classList.add('show');
@@ -22,7 +14,7 @@ var showModalOver = function(){
   var scoreTable = document.querySelector('#table')
   scoreTable.innerHTML += '<tr><th>Round</th><th>Player</th><th>Computer</th><th>Result</th></tr> '+progressTable.join(' ')+''
 };
-  
+*/ 
 //hide modal
 var hideModal = function(event){
   event.preventDefault();
