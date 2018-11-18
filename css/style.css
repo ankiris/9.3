@@ -1,4 +1,4 @@
-body { background: #7DA2EB; font-family: 'K2D', sans-serif; text-align: center; position: relative; }
+body { background: #4E85F1; font-family: 'K2D', sans-serif; text-align: center; position: relative; }
 
 .far { padding: 25px; font-size: 50px; }
 
@@ -8,7 +8,7 @@ body { background: #7DA2EB; font-family: 'K2D', sans-serif; text-align: center; 
 
 .container { max-width: 400px; margin: 0 auto; }
 
-#start-game { background-color: #4E85F1; border-color: none; margin: 0; padding: 0; width: auto; }
+#start-game { background-color: #E5ECFB; border-color: none; margin: 10px; padding: 10px; width: auto; }
 
 .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.2); }
 
