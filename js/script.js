@@ -58,6 +58,7 @@ var params = {
 var button = document.getElementById('start-game');
 button.addEventListener('click', newGame);
 function newGame(){
+  output.innerHTML = ''; 
   params.rounds = window.prompt('How many rounds you would like to play');
   if (!isNaN(params.rounds) && params.rounds>0){
    document.getElementById("game").style.display = "block";
