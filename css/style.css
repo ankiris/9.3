@@ -12,7 +12,7 @@ body { background: #4E85F1; font-family: 'K2D', sans-serif; text-align: center; 
 
 #start-game { background-color: #E5ECFB; font-family: 'K2D', sans-serif; border-radius: 5%; border-color: none; margin: 10px 20px; padding: 10px; width: auto; }
 
-.overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); }
+.overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.2); }
 
 .overlay.show { display: block; }
 
@@ -22,8 +22,8 @@ body { background: #4E85F1; font-family: 'K2D', sans-serif; text-align: center; 
 
 .modal .close { position: absolute; right: 0; top: 0; padding: 5px; color: #000; text-decoration: none; }
 
-.modal header { font-size: 20px; line-height: 30px; min-height: 30px; font-weight: bold; padding: 0 30px; margin: 0 auto; }
+.modal header { font-size: 20px; line-height: 30px; min-height: 30px; font-weight: bold; padding: 0 30px; }
 
 .modal .content { min-height: 30px; padding: 5px 30px; }
 
-.modal #table { width: 5000px; box-shadow: 0px 0px 10px 3px grey; }
+.modal #table { width: 500px; margin: 0 auto; box-shadow: 0px 0px 10px 3px grey; }
