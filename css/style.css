@@ -16,14 +16,14 @@ body { background: #4E85F1; font-family: 'K2D', sans-serif; text-align: center; 
 
 .overlay.show { display: block; }
 
-.modal { display: none; background: #BACDF2; width: 500px; position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); }
+.modal { display: none; background: #BACDF2; width: 600px; position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); }
 
 .modal.show { display: block; }
 
 .modal .close { position: absolute; right: 0; top: 0; padding: 5px; color: #000; text-decoration: none; }
 
-.modal header { font-size: 20px; line-height: 30px; min-height: 30px; font-weight: bold; padding: 0 30px; }
+.modal header { font-size: 20px; line-height: 30px; min-height: 30px; font-weight: bold; padding: 0 30px; margin: 0 auto; }
 
 .modal .content { min-height: 30px; padding: 5px 30px; }
 
-.modal #table { width: 400px; margin: 0 auto; box-shadow: 0px 0px 10px 3px grey; }
+.modal #table { width: 5000px; box-shadow: 0px 0px 10px 3px grey; }
