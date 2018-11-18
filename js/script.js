@@ -114,7 +114,7 @@ function user(){
   params.games = params.wins + params.loses;
   //print out the result
   output.innerHTML = 'You played '+playerMove+ '<br> Computer played '+compMove + '<br><br>'; 
-  result.innerHTML = 'You:'+params.wins+ ' - Computer:'+params.loses+ '<br><br> games played: '+params.games+'.';
+  result.innerHTML = 'You:'+params.wins+ ' - Computer:'+params.loses+ '<br><br> Games without a tie: '+params.games+'.';
   //creates entry of progress after every round
   params.roundNumber++
   params.progress.push([params.roundNumber, playerMove, compMove, resultTable]);
