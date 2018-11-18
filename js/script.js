@@ -139,7 +139,9 @@ function gameOverTable() {
     var rows = params.progress[i];
     progressTable.push('<tr><td>'+rows[0]+'</td><td>'+rows[1]+'</td><td>'+rows[2]+'</td><td>'+rows[3]+'</td></tr>');
     console.log(progressTable)
+    round.innerHTML = '';
     output.innerHTML = 'Game Over'; 
-    result.innerHTML = ''
+    result.innerHTML = '';
+    comment.innerHTML = ''
   };
 }
