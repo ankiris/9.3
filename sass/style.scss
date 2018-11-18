@@ -1,6 +1,6 @@
 body {
-    background: lightblue; 
-    font-family: 'Courier New', Courier, monospace; 
+    background: #BAC3EE; 
+    font-family: 'K2D', sans-serif;
     text-align: center; position: relative; 
   }
   
@@ -70,9 +70,10 @@ body {
       padding: 5px 30px;
       
     }
+    #table {
+      width: 400px;
+      padding: 50px;
+      box-shadow: 0px 0px 10px 3px grey;
   } 
-  #table {
-    position: fixed;
-    border: 2px solid black;
-    box-shadow: 2px grey;
+  
   }  
