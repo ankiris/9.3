@@ -4,8 +4,6 @@ var modals = document.querySelectorAll('.modal');
 //open modal
 var name;
 
-/*
-
 var showModalOver = function(){
   document.querySelector('#modal-overlay').classList.add('show');
   document.querySelector('#modal-two').classList.add('show');
@@ -14,7 +12,7 @@ var showModalOver = function(){
   var scoreTable = document.querySelector('#table')
   scoreTable.innerHTML += '<tr><th>Round</th><th>Player</th><th>Computer</th><th>Result</th></tr> '+progressTable.join(' ')+''
 };
-*/ 
+
 //hide modal
 var hideModal = function(event){
   event.preventDefault();
