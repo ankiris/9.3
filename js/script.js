@@ -10,7 +10,7 @@ var showModalOver = function(){
   var endResult = document.querySelector('#score');
   endResult.innerHTML = ' <div class="content"> <p>Final result: <br> You '+params.wins+ ' : '+params.loses+' Computer</p></div>'
   var scoreTable = document.querySelector('#table')
-  scoreTable.innerHTML += '<tr><th>Round</th><th>Player</th><th>Computer</th><th>Result</th></tr> '+progressTable.join(' ')+''
+  scoreTable.innerHTML = '<tr><th>Round</th><th>Player</th><th>Computer</th><th>Result</th></tr> '+progressTable.join(' ')+''
 };
 
 //hide modal
@@ -21,6 +21,20 @@ var hideModal = function(event){
   for(var i = 0; i < modale.length; i++){
     modale[i].classList.remove('show');
   }
+  params = {
+    rounds: 0,
+    loses: 0,
+    wins: 0,
+    games: 0,
+    roundNumber: 0,
+    progress: []
+  };
+  round.innerHTML = '';
+  output.innerHTML = ''; 
+  result.innerHTML = '';
+  comment.innerHTML = '';
+  progressTable = []; 
+  scoreTable.innerHTML = '';
 };
 
 var closeButtons = document.querySelectorAll('.modal .close');
@@ -58,7 +72,6 @@ var params = {
 var button = document.getElementById('start-game');
 button.addEventListener('click', newGame);
 function newGame(){
-  output.innerHTML = ''; 
   params.rounds = window.prompt('How many rounds you would like to play');
   if (!isNaN(params.rounds) && params.rounds>0){
    document.getElementById("game").style.display = "block";
@@ -102,7 +115,7 @@ function user(){
           params.wins++;
           comment.innerHTML = 'You won!';
           resultTable = 'You won!'
-        } else {
+        } else {
           params.loses++;
           comment.innerHTML = 'You lost!';
           resultTable = 'You lost!'
@@ -140,9 +153,5 @@ function gameOverTable() {
     var rows = params.progress[i];
     progressTable.push('<tr><td>'+rows[0]+'</td><td>'+rows[1]+'</td><td>'+rows[2]+'</td><td>'+rows[3]+'</td></tr>');
     console.log(progressTable)
-    round.innerHTML = '';
-    output.innerHTML = 'Game Over'; 
-    result.innerHTML = '';
-    comment.innerHTML = ''
   };
 }

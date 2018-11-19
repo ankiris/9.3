@@ -3,10 +3,6 @@ body {
     font-family: 'K2D', sans-serif;
     text-align: center; position: relative; 
   }
-  .title-sign{
-    color: white;
-    text-shadow: 2px 2px 4px #000000;
-  }
   .far { 
     padding: 25px; 
     font-size: 50px; 
@@ -15,13 +11,16 @@ body {
     transform: scale(1.5); 
     transition: 1s; 
   }
+  
   #game {
     display: none;
   }
+
   .container {
     max-width: 400px; 
     margin: 0 auto;
   }
+
   #start-game {
     background-color: #E5ECFB;
     font-family: 'K2D', sans-serif;
@@ -45,7 +44,7 @@ body {
       display: block;
     }
   }
-  
+
   .modal {
     display: none;
     background: #BACDF2;
@@ -54,6 +53,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
+    box-shadow: 0px 0px 10px 3px grey;
   
     &.show {
       display: block;
@@ -79,11 +79,13 @@ body {
     .content {
       min-height: 30px;
       padding: 5px 30px;
+      margin: 0 auto;
       
     }
     #table {
       width: 500px;
-      margin: 0 auto;
+      padding: 30px;
+      margin: auto;
       box-shadow: 0px 0px 10px 3px grey;
     }
   }  
